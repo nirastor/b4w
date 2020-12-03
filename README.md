@@ -1,4 +1,5 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/qb53jaghf7sj15nk?svg=true)](https://ci.appveyor.com/project/nirastor/ahj-2-3-tablesort)
+[![Build status](https://ci.appveyor.com/api/projects/status/l8pvwpgxesvxcyo7?svg=true)](https://ci.appveyor.com/project/nirastor/b4w)
+
 ***
 
 # Тестовое в b4w
