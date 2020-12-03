@@ -31,7 +31,7 @@
   margin-bottom: 30px;
 }
 
-.header-add-button {
+.button {
   border: 1px solid black;
   background-color: #fff;
   font-size: 20px;
@@ -46,16 +46,47 @@
   transition: all .2s ease;
 }
 
-.header-add-button:hover {
+.form-submit-button {
+  margin-right: 20px;
+}
+
+.form-input {
+  width: 390px;
+  border: 1px solid black;
+  border-radius: 6px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 10px;
+  font-size: 16px;
+}
+
+.form-input::placeholder {
+  transition: all .3s ease;
+}
+
+.form-input:focus::placeholder {
+  opacity: 0;
+}
+
+.header-title {
+  padding-left: 11px;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.header-add-button:hover,
+.form-submit-button:hover {
   box-shadow: 0 2px 5px green;
 }
 
-.header-add-button--delete {
+.button-cancel {
   border-color: red;
   color: red
 }
 
-.header-add-button--delete:hover {
+.button-cancel:hover {
   box-shadow: 0 2px 5px red;
 }
 
@@ -83,9 +114,25 @@
   font-weight: bold;
 }
 
-.card-type,
-.card-color {
-  color: #333333;
+.card-color-prewiev {
+  width: 22px;
+  height: 22px;
+  margin-right: 7px;
+  border: 1px solid black;
+  border-radius: 2px;
+}
+
+.card-name {
+  margin-bottom: 10px;
+}
+
+.card-type {
+  color: #888888;
+  margin-bottom: 7px;
+}
+
+.color-wrapper {
+  display: flex;
 }
 
 .card-control:last-child {
@@ -132,10 +179,26 @@
   color: grey;
 }
 
+/* Colorpicker */
+
+
+.colorPicker .twod, .colorPicker .twod .bg {
+  width: 240px;
+  height: 240px;
+}
+
 @media (min-width: 780px) {
   .column {
     width: 80%;
     max-width: 1200px;
+  }
+
+  .card-name {
+    margin-bottom: 0;
+  }
+
+  .card-type {
+    margin-bottom: 0;
   }
 
   .card-content {
@@ -166,7 +229,7 @@
 
   .card-name {
     padding-right: 20px;
-    width: 70%;
+    width: 65%;
     text-align: left;
   }
 
@@ -176,9 +239,7 @@
     text-align: left;
   }
 
-  .card-color {
-    width: 15%;
-    padding-right: 40px;
-    text-align: left;
+  .color-wrapper {
+    width: 20%
   }
 }

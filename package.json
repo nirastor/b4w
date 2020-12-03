@@ -37,6 +37,7 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "colorjoe": "^4.1.1",
     "core-js": "^3.6.5"
   }
 }

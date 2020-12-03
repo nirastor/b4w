@@ -1,15 +1,16 @@
 export default class ui {
-  constructor(elFormContainer, elCardList, addButton, form) {
+  constructor(elFormContainer, elCardList, addButton, form, joe) {
     this.elFormContainer = elFormContainer;
     this.elCardList = elCardList;
     this.addButton = addButton;
     this.form = form;
+    this.joe = joe;
   }
 
   toggleForm(formState) {
     this.elFormContainer.classList.toggle('display-none');
     this.elCardList.classList.toggle('display-none');
-    this.addButton.classList.toggle('header-add-button--delete');
+    this.addButton.classList.toggle('button-cancel');
     this.addButton.innerText = this.addButton.innerText === 'Добавить' ? 'Отменить' : 'Добавить';
 
     if (formState === 'add') {
@@ -27,7 +28,10 @@ export default class ui {
       <div class="card-content">
           <div class="card-name">${card.name}</div>
           <div class="card-type">${card.type}</div>
-          <div class="card-color">${card.color}</div>
+          <div class="color-wrapper">
+            <div class="card-color-prewiev">&nbsp;</div>
+            <div class="card-color">${card.color}</div>
+          </div>
       </div>
       <div class="card-controls">
           <div class="card-control card-control--delete">&times;</div>
@@ -37,6 +41,8 @@ export default class ui {
       </div>
     `;
     this.elCardList.appendChild(newCard);
+    const colorPreview = newCard.querySelector('.card-color-prewiev');
+    colorPreview.style.backgroundColor = card.color;
   }
 
   redraw(cards) {

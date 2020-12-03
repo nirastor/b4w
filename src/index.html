@@ -11,17 +11,17 @@
         <div class="column">
             <div class="app-header">
                 <h1 class="header-title">ColorEditor</h1>
-                <div class="header-add-button">Добавить</div>
+                <button class="button header-add-button">Добавить</button>
             </div>
 
             <div class="app-form-container display-none">
                 <form class="form" action="">
-                    <input class="form-input form-input-name" type="text" placeholder="name">
-                    <input class="form-input form-input-type" type="text" placeholder="type">
-                    <input class="form-input form-input-color" type="text" placeholder="color">
+                    <input class="form-input form-input-name" type="text" placeholder="Name" required>
+                    <input class="form-input form-input-type" type="text" placeholder="Type" required>
+                    <div class="form-color-picker"></div>
                     <div class="form-buttons">
-                        <button class="form-submit-button">Текст кнопки</button>
-                        <button class="form-cancel-button">Отмена</button>
+                        <button class="button form-submit-button" type="submit">Текст кнопки</button>
+                        <button class="button button-cancel form-cancel-button" type="button">Отменить</button>
                     </div>
                 </form>
             </div>

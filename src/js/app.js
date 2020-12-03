@@ -1,3 +1,4 @@
+import colorjoe from 'colorjoe';
 import Form from './form';
 import Ui from './ui';
 import Card from './card';
@@ -11,7 +12,17 @@ class App {
 
     this.elFormContainer = document.querySelector('.app-form-container');
     this.elForm = this.elFormContainer.querySelector('.form');
-    this.form = new Form(this.elForm);
+    this.elColorPickerContainer = this.elForm.querySelector('.form-color-picker');
+    this.formCancelButton = this.elForm.querySelector('.form-cancel-button');
+
+    this.joe = colorjoe.rgb(this.elColorPickerContainer, '#4350a8', [
+      'currentColor',
+      ['fields', {
+        space: 'RGB', limit: 255, fix: 0,
+      }],
+      'hex',
+    ]);
+    this.form = new Form(this.elForm, this.joe);
 
     this.elCardList = document.querySelector('.app-cards-list');
     this.addButton = document.querySelector('.header-add-button');
@@ -21,6 +32,7 @@ class App {
       this.elCardList,
       this.addButton,
       this.form,
+      this.joe,
     );
   }
 
@@ -31,6 +43,11 @@ class App {
 
   initListeners() {
     this.addButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      this.openFormForAdd();
+    });
+
+    this.formCancelButton.addEventListener('click', (e) => {
       e.preventDefault();
       this.openFormForAdd();
     });
@@ -89,6 +106,7 @@ class App {
   }
 
   openFormForAdd() {
+    this.form.myReset();
     this.ui.toggleForm('add');
   }
 
@@ -104,8 +122,8 @@ class App {
     } else if (this.form.state === 'edit') {
       this.editCard();
     }
+    this.form.myReset();
     this.ui.toggleForm();
-    this.form.elForm.reset();
   }
 
   editCard() {
