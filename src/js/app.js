@@ -134,6 +134,7 @@ class App {
       this.editCard();
     }
     this.form.myReset();
+    this.formOpen = false;
     this.ui.toggleForm();
   }
 
