@@ -123,6 +123,7 @@ class App {
 
   openFormForEdit(elem) {
     this.ui.toggleForm('edit');
+    this.formOpen = true;
     this.editIndex = this.returnIndexByChildElem(elem);
     this.form.setDefaultValues(this.appData[this.editIndex]);
   }
