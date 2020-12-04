@@ -9,6 +9,7 @@ class App {
     this.nextId = 1;
     this.STORAGE_NAME = 'coloreditordata';
     this.editIndex = null;
+    this.formOpen = false;
 
     this.elFormContainer = document.querySelector('.app-form-container');
     this.elForm = this.elFormContainer.querySelector('.form');
@@ -27,12 +28,15 @@ class App {
     this.elCardList = document.querySelector('.app-cards-list');
     this.addButton = document.querySelector('.header-add-button');
 
+    this.welcomeMessage = document.querySelector('.welcome-message');
+
     this.ui = new Ui(
       this.elFormContainer,
       this.elCardList,
       this.addButton,
       this.form,
       this.joe,
+      this.welcomeMessage,
     );
   }
 
@@ -108,6 +112,13 @@ class App {
   openFormForAdd() {
     this.form.myReset();
     this.ui.toggleForm('add');
+
+    if (this.formOpen === false) {
+      this.ui.hideWeclomeMessage();
+    } else if (this.appData.length === 0) {
+      this.ui.showWelcomeMessage();
+    }
+    this.formOpen = !this.formOpen;
   }
 
   openFormForEdit(elem) {

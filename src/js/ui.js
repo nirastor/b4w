@@ -1,10 +1,11 @@
 export default class ui {
-  constructor(elFormContainer, elCardList, addButton, form, joe) {
+  constructor(elFormContainer, elCardList, addButton, form, joe, welcomeMessage) {
     this.elFormContainer = elFormContainer;
     this.elCardList = elCardList;
     this.addButton = addButton;
     this.form = form;
     this.joe = joe;
+    this.welcomeMessage = welcomeMessage;
   }
 
   toggleForm(formState) {
@@ -18,6 +19,14 @@ export default class ui {
     } else if (formState === 'edit') {
       this.form.setStateToEdit();
     }
+  }
+
+  showWelcomeMessage() {
+    this.welcomeMessage.classList.remove('display-none');
+  }
+
+  hideWeclomeMessage() {
+    this.welcomeMessage.classList.add('display-none');
   }
 
   drawCard(card) {
@@ -47,6 +56,12 @@ export default class ui {
 
   redraw(cards) {
     this.elCardList.innerHTML = '';
+
+    if (!cards.length) {
+      this.showWelcomeMessage();
+      return;
+    }
+
     cards.forEach((card) => {
       this.drawCard(card);
     });

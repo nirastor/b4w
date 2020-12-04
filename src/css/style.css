@@ -179,13 +179,38 @@
   color: grey;
 }
 
+.welcome-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #888888;
+  color: #888888;
+  padding: 40px;
+  padding-top: 20px;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.welcome-message-arrow {
+  font-size: 50px;
+  line-height: 1;
+  color: #aaaaaa;
+  text-align: center;
+}
+
+.welcome-message-title {
+  font-weight: bold;
+  margin-bottom: 7px;
+}
+
 /* Colorpicker */
 
 
-.colorPicker .twod, .colorPicker .twod .bg {
+/* .colorPicker .twod, .colorPicker .twod .bg {
   width: 240px;
   height: 240px;
-}
+} */
 
 @media (min-width: 780px) {
   .column {
